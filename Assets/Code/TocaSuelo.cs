@@ -12,8 +12,9 @@ public class TocaSuelo : MonoBehaviour
     }
 
     // Update is called once per frame
-    void OnCollisionStay2D(Collision2D col){
+    void OnCollisionEnter2D(Collision2D col){
         player.toca_suelo = true;
+        Debug.Log("Colisiona: "+ player.toca_suelo);
     }
     void OnCollisionExit2D(Collision2D col)
     {

@@ -57,8 +57,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Code\Nube.cs" />
     <Compile Include="Assets\Code\PlayerController.cs" />
-    <Compile Include="Assets\Code\TocaSuelo.cs" />
+    <Compile Include="Assets\Code\PlayerFollower.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/HECTOR-2019/JUEGOS DE VIDEO/TAREAS/TAREA 2/MiniJuego_2/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

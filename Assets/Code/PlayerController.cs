@@ -8,7 +8,8 @@ public class PlayerController : MonoBehaviour
     public float speed = 2f;
     public float max_speed = 5f;
     public bool toca_suelo;
-    public float fuerza_salto = 10.5f;
+    public float fuerza_salto = 8.0f;
+    public Transform trans;
     private Rigidbody2D rb2d;
     private Animator animator;
     private bool salto;
@@ -51,10 +52,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D col){
+    void OnCollisionStay2D(Collision2D col){
         if (col.gameObject.tag == "suelo"){
             toca_suelo = true;
         }               
+    }
+    void OnCollisionExit2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "suelo")
+        {
+            toca_suelo = false;
+        }
+    }
+
+    void OnBecameInvisible(){
+        this.transform.position = new Vector3(0, 5, 0);
     }
 
 

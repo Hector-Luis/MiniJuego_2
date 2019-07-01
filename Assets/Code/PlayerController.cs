@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
+    public KunaiController kunai;
     public float speed = 2f;
     public float max_speed = 5f;
     public bool toca_suelo;
     public float fuerza_salto = 8.0f;
+    public float t_kunai = 2f;
     public Transform trans;
     private Rigidbody2D rb2d;
     private Animator animator;
@@ -30,6 +31,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow) && toca_suelo){
             salto = true;
         }
+
+        //Invoke("Lanzar_kunai", t_kunai);
     }
 
     void FixedUpdate() {
@@ -55,7 +58,11 @@ public class PlayerController : MonoBehaviour
     void OnCollisionStay2D(Collision2D col){
         if (col.gameObject.tag == "suelo"){
             toca_suelo = true;
-        }               
+        }
+        if (col.gameObject.tag == "kunai")
+        {
+            this.transform.position = new Vector3(0, 6, 0);
+        }
     }
     void OnCollisionExit2D(Collision2D col)
     {
@@ -66,8 +73,11 @@ public class PlayerController : MonoBehaviour
     }
 
     void OnBecameInvisible(){
-        this.transform.position = new Vector3(0, 5, 0);
+        this.transform.position = new Vector3(0, 6, 0);
     }
 
+    /*void Lanzar_kunai() {
+        Instantiate(kunai);
+    }*/
 
 }
